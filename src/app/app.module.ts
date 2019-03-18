@@ -16,10 +16,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { StudentComponent } from './student/student.component'
+import {ListStudentComponent} from './list-student/list-student.component';
+import {AddStudentComponent} from './add-student/add-student.component';
+import {EditStudentComponent} from './edit-student/edit-student.component';
 @NgModule({
   declarations: [AppComponent,LoginComponent,DashboardComponent ,
-    LogoutComponent,AboutComponent,AddcustomerComponent,ListcustomerComponent,CustomerComponent,EditcustomerComponent],
+    LogoutComponent,AboutComponent,AddcustomerComponent,ListcustomerComponent,CustomerComponent,EditcustomerComponent,
+    ListStudentComponent,AddStudentComponent,EditStudentComponent,StudentComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule],
   providers: [

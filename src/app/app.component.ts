@@ -36,7 +36,14 @@ export class AppComponent {
       title: 'Logout',
       url: '/login',
       icon: 'exit'
-    }
+    },
+    {
+      title: 'Student',
+      url: '/student',
+      icon: 'person'
+    },
+  
+  
   ];
   
   
