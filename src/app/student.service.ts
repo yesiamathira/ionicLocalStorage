@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export default class StudentService {
   students = [];
-  constructor() { 
+  private customerUrl = 'http://localhost:3000/api/customers';
+  constructor(private http: HttpClient) { 
     var defstudents = [
       {
         rollno:'1', 
@@ -51,6 +54,9 @@ export default class StudentService {
   getStudents(){
   	return this.students;
   }
+  getRemoteCustomers(): Observable<[]>{
+  	return this.http.get<[]>(this.customerUrl); 		
+ }
 
   addStudent(student){
   	student.rollno = Math.round(Math.random()*100000);

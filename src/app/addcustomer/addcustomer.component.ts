@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  CustomerService  from '../customer.service';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-addcustomer',
   templateUrl: './addcustomer.component.html',
@@ -14,15 +14,17 @@ export class AddcustomerComponent implements OnInit {
     address:"",
 };
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService,private router:Router) { }
 
   ngOnInit() {
     //this.list=this.customerService.getCustomers();
   }
-  addCustomer(customer){
-    this.customerService.addCustomer(customer);
-    this.customerService.getCustomers();
+  // addCustomer(customer){
+  //   this.customerService.addCustomer(customer);
+  //   this.customerService.getCustomers();
    
+  // }
+  addCustomer(customer){
+  	this.customerService.addRemoteCustomer(customer).subscribe(()=>{this.router.navigate(['/list-customer']);});
   }
-  
 }

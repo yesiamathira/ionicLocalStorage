@@ -23,19 +23,22 @@ list=[];
   constructor(private customerService: CustomerService,private router :Router) { }
   ngOnInit() {
    
-  
+    this.customerService.getRemoteCustomers().subscribe((result) => {this.list = result;});
     this.list=this.customerService.getCustomers();
   
 }
+
+
+
 onEdit(customer)
 {
   this.router.navigate(['./editcustomer/'+customer.id]); 
 }
 
-deleteCustomer(customer){
- this.customerService.deleteCustomer(customer);
- this.list=this.customerService.getCustomers();
-}
+// deleteCustomer(customer){
+//  this.customerService.deleteCustomer(customer);
+//  this.list=this.customerService.getCustomers();
+// }
 
 deleteAllCustomer(){
   this.customerService.deleteAllCustomer();
@@ -43,6 +46,11 @@ deleteAllCustomer(){
 }
 
 
-
+deleteCustomer(c){
+  this.customerService.deleteRemoteCustomer(c).subscribe((e) => {
+    this.customerService.getRemoteCustomers().subscribe((result) => {this.list = result;});
+  });
+ // this.list = this.customerService.getCustomers();
+}
 
 }

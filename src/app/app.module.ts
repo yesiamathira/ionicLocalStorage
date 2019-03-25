@@ -13,7 +13,7 @@ import {EditcustomerComponent} from './editcustomer/editcustomer.component';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import { HttpClientModule }    from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudentComponent } from './student/student.component'
@@ -25,7 +25,7 @@ import {EditStudentComponent} from './edit-student/edit-student.component';
     LogoutComponent,AboutComponent,AddcustomerComponent,ListcustomerComponent,CustomerComponent,EditcustomerComponent,
     ListStudentComponent,AddStudentComponent,EditStudentComponent,StudentComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
